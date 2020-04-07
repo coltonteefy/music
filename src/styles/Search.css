@@ -17,7 +17,7 @@
 }
 
 
-.toggle-icon {
+.open-search-icon {
     position: absolute;
     left: 18px;
     top: 14px;
@@ -34,49 +34,34 @@
     z-index: 1;
     justify-self: start;
     margin: 10px 20px;
+    position: fixed;
+    left: 10px;
 }
 
 .hide {
     animation: slide-up .3s ease forwards;
 }
 
-@keyframes slide-right {
-    from {
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slide-left {
-    from {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateX(-100px);
-        color: white;
-        opacity: 0;
-    }
-}
-
 .float-in {
     transform: translateX(0);
+}
+
+.top {
+    display: flex;
+    justify-content: center;
 }
 
 #search-bar {
     margin: 10px 0 35px;
     border: none;
     border-bottom: 1px solid;
-    width: 70%;
+    width: 70vw;
     display: grid;
+    height: 70px;
     grid-template-columns: 90% 10%;
     justify-self: center;
-    transition: all 1s ease;
-    transform: translateX(-800px);
+    transition: all .8s ease;
+    transform: translateX(-200px);
 }
 
 #search-bar input {
@@ -109,7 +94,7 @@
     justify-self: center;
     width: 70%;
     padding: 5px;
-    transition: all 1.2s ease;
+    transition: all 1s ease;
     color: #ececec;
     transform: translateX(-800px);
     margin-bottom: 45px;
@@ -122,6 +107,12 @@
     justify-items: start;
     align-items: center;
     animation: tracksEnter .3s ease-in forwards;
+}
+
+.search-results:hover {
+    background: #ababab47;
+    border-radius: 4px;
+    cursor: default;
 }
 
 .search-artist-name {
@@ -137,6 +128,29 @@
 .search-img {
     width: 100px;
     height: 100px;
+}
+
+@keyframes slide-right {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-left {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100px);
+        color: white;
+        opacity: 0;
+    }
 }
 
 @keyframes tracksEnter {

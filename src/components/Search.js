@@ -41,7 +41,7 @@ let Search = (props) => {
         }else {
             document.getElementById("icon").style.clipPath = "inset(0px 100% 100% 0px round 1px)";
             document.getElementById("searched-tracks-container").style.transform = "translateX(-800px)";
-            document.getElementById("search-bar").style.transform = "translateX(-800px)";
+            document.getElementById("search-bar").style.transform = "translateX(-200px)";
             document.getElementById("close-icon").style.animation = "slide-left .5s ease forwards";
         }
     };
@@ -54,23 +54,26 @@ let Search = (props) => {
     return (
         <div className="search-container">
 
-            <i className="fas fa-search toggle-icon"
+            <i className="fas fa-search open-search-icon"
                id="toggle-icon"
                onClick={openSearch}>
             </i>
 
             <section className="icon" id="icon">
-                <i className="fas fa-times close-icon"
-                   id="close-icon"
-                   onClick={openSearch}>
-                </i>
+                <div className="top">
+                    <i className="fas fa-times close-icon"
+                       id="close-icon"
+                       onClick={openSearch}>
+                    </i>
 
-                <div id="search-bar">
-                    <input type="text" onChange={updateSearch} value={searchInput}/>
-                    {/*<i className="fas fa-search search-btn"*/}
-                    {/*   onClick={search}>*/}
-                    {/*</i>*/}
+                    <div id="search-bar">
+                        <input type="text" onChange={updateSearch} value={searchInput} placeholder="Search"/>
+                        {/*<i className="fas fa-search search-btn"*/}
+                        {/*   onClick={search}>*/}
+                        {/*</i>*/}
+                    </div>
                 </div>
+
 
                 <section id="searched-tracks-container">
                     {

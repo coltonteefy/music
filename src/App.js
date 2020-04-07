@@ -35,9 +35,9 @@ function App() {
     getNowPlaying();
   });
 
-  // let timer = setInterval(() => {
-  //     getNowPlaying()
-  // }, 5000);
+  let timer = setInterval(() => {
+      getNowPlaying()
+  }, 3000);
 
   let getNowPlaying =  () => {
     spotifyWebApi.getMyCurrentPlaybackState()
