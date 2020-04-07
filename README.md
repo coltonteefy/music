@@ -43,26 +43,38 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+# Spotify Accounts Authentication Examples
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+This project contains basic demos showing the different OAuth 2.0 flows for [authenticating against the Spotify Web API](https://developer.spotify.com/web-api/authorization-guide/).
 
-### Analyzing the Bundle Size
+These examples cover:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+* Authorization Code flow
+* Client Credentials flow
+* Implicit Grant flow
 
-### Making a Progressive Web App
+## Installation
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+These examples run on Node.js. On [its website](http://www.nodejs.org/download/) you can find instructions on how to install it. You can also follow [this gist](https://gist.github.com/isaacs/579814) for a quick and easy way to install Node.js and npm.
 
-### Advanced Configuration
+Once installed, clone the repository and install its dependencies running:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+    $ npm install
 
-### Deployment
+### Using your own credentials
+You will need to register your app and get your own credentials from the Spotify for Developers Dashboard.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+To do so, go to [your Spotify for Developers Dashboard](https://beta.developer.spotify.com/dashboard) and create your application. For the examples, we registered these Redirect URIs:
 
-### `npm run build` fails to minify
+* http://localhost:8888 (needed for the implicit grant flow)
+* http://localhost:8888/callback
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Once you have created your app, replace the `client_id`, `redirect_uri` and `client_secret` in the examples with the ones you get from My Applications.
+
+## Running the examples
+In order to run the different examples, open the folder with the name of the flow you want to try out, and run its `app.js` file. For instance, to run the Authorization Code example do:
+
+    $ cd sever/authorization_code
+    $ node app.js
+
+Then, open `http://localhost:8888` in a browser.
