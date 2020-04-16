@@ -1,0 +1,92 @@
+.play-bar-container {
+    width: 100%;
+    justify-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    margin: 10px;
+}
+
+.artist-section {
+    /*border: 1px solid blue;*/
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 10px;
+    align-items: center;
+}
+
+.control-btns {
+    /*border: 1px solid red;*/
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.play-pause-box {
+    background: rgb(120, 114, 223);
+    width: 75%;
+    height: 50px;
+    border-radius: 12px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play, .pause {
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+}
+
+.forward, .back, .material-icons {
+    color: rgb(185, 185, 185);
+    font-size: 20px;
+    cursor: default;
+}
+
+.forward:hover, .back:hover, .material-icons:hover {
+    color: rgb(120, 114, 223);
+    /*font-size: 20px;*/
+    cursor: default;
+}
+
+
+
+/*.artist-info {*/
+/*    display: flex;*/
+/*}*/
+
+.artist-section img {
+    width: 60px;
+    border-radius: 4px;
+}
+
+.artist-name-song {
+    margin: 10px 0;
+    text-align: start;
+    width: 100%;
+}
+
+.artist-name {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: rgb(99, 97, 123);
+}
+
+.artist-song{
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: rgb(119, 118, 118);
+}
+
+
+.volume {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}

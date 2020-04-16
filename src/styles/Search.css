@@ -1,9 +1,10 @@
 .search-container {
     /*display: none;*/
+
 }
 
 .icon {
-    background: #1b0325;
+    background: rgb(120, 114, 223);
     clip-path: inset(0px 100% 100% 0px round 1px);
     height: 100vh;
     width: 100vw;
@@ -11,9 +12,10 @@
     position: absolute;
     top: 0;
     left: 0;
-    color: #ececec;
+    color: rgb(255, 255, 255);
     display: grid;
     overflow: scroll;
+    z-index: 10;
 }
 
 
@@ -21,12 +23,12 @@
     position: absolute;
     left: 18px;
     top: 14px;
-    color: #1b0325;
+    color: rgb(249, 179, 166);
     font-size: 35px;
     transform: translateY(0);
 }
 
-.close-icon {
+.back-arrow-icon {
     color: white;
     font-size: 35px;
     transform: translateX(-100px);
@@ -66,7 +68,7 @@
 
 #search-bar input {
     background: transparent;
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     font-size: 50px;
     font-weight: 200;
@@ -74,16 +76,18 @@
     padding: 5px;
 }
 
-.search-btn {
-    color: #1b0325;
-    background: white;
-    border-radius: 0 3px 3px 0;
-    border: 1px solid white;
+#search-bar input::placeholder {
+    color: rgba(255, 255, 255,.7);
+}
+
+.clear-btn {
+    color: rgba(255, 255, 255,.7);
     font-size: 30px;
     height: 53px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    transition: all .5s ease-in;
 }
 
 #searched-tracks-container {
@@ -97,7 +101,7 @@
     transition: all 1s ease;
     color: #ececec;
     transform: translateX(-800px);
-    margin-bottom: 45px;
+    margin-bottom: 100px;
 }
 
 .search-results {

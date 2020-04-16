@@ -1,9 +1,4 @@
 /**
- * This is an example of a basic node.js script that performs
- * the Authorization Code oAuth2 flow to authenticate against
- * the Spotify Accounts.
- *
- * For more information, read
  * https://developer.spotify.com/web-api/authorization-guide/#authorization_code_flow
  */
 
@@ -46,7 +41,7 @@ app.get('/login', function(req, res) {
   res.cookie(stateKey, state);
 
   // your application requests authorization
-  var scope = 'user-read-private user-read-email user-read-playback-state user-modify-playback-state';
+  var scope = 'user-read-private user-read-email user-read-playback-state user-modify-playback-state user-read-recently-played user-top-read';
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
@@ -58,10 +53,8 @@ app.get('/login', function(req, res) {
 });
 
 app.get('/callback', function(req, res) {
-
   // your application requests refresh and access tokens
   // after checking the state parameter
-
   var code = req.query.code || null;
   var state = req.query.state || null;
   var storedState = req.cookies ? req.cookies[stateKey] : null;
@@ -95,7 +88,8 @@ app.get('/callback', function(req, res) {
         var options = {
           url: 'https://api.spotify.com/v1/me',
           headers: { 'Authorization': 'Bearer ' + access_token },
-          json: true
+          json: true,
+          expires: "3600"
         };
 
         // use the access token to access the Spotify Web API
@@ -110,6 +104,7 @@ app.get('/callback', function(req, res) {
             refresh_token: refresh_token
           }));
       } else {
+        console.log("INVALID!");
         res.redirect('/#' +
           querystring.stringify({
             error: 'invalid_token'
@@ -120,7 +115,6 @@ app.get('/callback', function(req, res) {
 });
 
 app.get('/refresh_token', function(req, res) {
-
   // requesting access token from refresh token
   var refresh_token = req.query.refresh_token;
   var authOptions = {

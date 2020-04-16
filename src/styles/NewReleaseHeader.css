@@ -1,0 +1,115 @@
+.new-release-container {
+    height: 400px;
+    margin-bottom: 15rem;
+    text-align: center;
+    /*display: grid;*/
+    /*grid-template-columns: 75% 25%;*/
+    /*background: rgb(249, 179, 166);*/
+
+    background: #DA22FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, rgb(120, 114, 223), rgb(249, 179, 166));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgb(120, 114, 223), rgb(249, 179, 166)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.new-release-label {
+    margin: 0;
+    padding: 60px;
+    letter-spacing: 3px;
+    color: rgb(255, 255, 255);
+}
+
+.new-release-slider {
+    height: 500px !important;
+    /*height: auto !important;*/
+    overflow: hidden;
+
+}
+
+.slider-slide {
+    height: fit-content !important;
+}
+
+.nr-play-btn{
+    font-size: 100px;
+}
+
+.card {
+    position: absolute;
+    border-radius: 8px;
+    height: 300px;
+    width: 300px;
+    left: 50%;
+    transform: translate(-50%);
+    margin: auto;
+    overflow: hidden;
+    box-shadow: 0 6px 9px 1px rgba(0, 0, 0, 0.2);
+}
+
+.card-blur {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: calc(100% + 1px);
+    background-color: rgb(85, 79, 215);
+    opacity: 0;
+    transition: opacity 0.15s ease-in;
+}
+
+.card:hover .card-blur {
+    opacity: 0.95;
+}
+
+.footer {
+    z-index: 1;
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    bottom: 0;
+}
+
+.play-btn-container {
+    height: 80px;
+    width: 300px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+    margin: auto;
+}
+
+.slider-play-btn {
+    margin-top: 2px;
+    border-radius: 100%;
+    background-color: white;
+    display: inline-block;
+    transform: translateY(200px);
+    transition: transform 1s cubic-bezier(.46, 1.48, .18, .81);
+}
+
+.card:hover .slider-play-btn, .card:hover .info {
+    transform: translateY(0px);
+}
+
+
+.info {
+    padding-left: 20px;
+    transform: translateY(250px);
+    transition: transform 1s cubic-bezier(.31,1.21,.64,1.02);
+}
+
+.nr-artist-name {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.nr-artist-album {
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    margin: 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+

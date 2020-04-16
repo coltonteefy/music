@@ -1,29 +1,54 @@
 .App {
-  text-align: center;
-  display: grid;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, .9);
+  font-family: 'Varela', sans-serif;
 }
 
-.artist-info {
-  margin: 10px 0;
-  text-align: start;
+.page-container {
+  height: 100%;
   width: 100%;
-}
-
-.artist-name {
-  font-size: 30px;
-  font-weight: 900;
-}
-
-.artist-song{
-  font-size: 25px;
-  font-weight: 600;
-}
-
-.play-pause-section {
-  font-size: 35px;
-  margin: 15px;
-  width: 35%;
-  justify-self: center;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 10% 90%;
+  grid-template-rows: 92vh 8vh;
+  grid-template-areas:
+          "menu    main"
+          "bottom  bottom";
 }
+
+.menu {
+  grid-area: menu;
+  background: rgba(185, 185, 185, .1);
+}
+
+.content-section {
+  grid-area: main;
+  /*background: rgba(120, 114, 223, .2);*/
+  overflow: scroll;
+}
+
+
+.bottom-play-bar {
+  grid-area: bottom;
+  background: rgb(255, 255, 255);
+  width: 100vw;
+  box-shadow: 0 0 13px 2px #0000006e;
+  border-radius: 12px 12px 0 0;
+  z-index: 1;
+  display: flex;
+}
+
+
+/*
+colors:
+purple: rgb(120, 114, 223);
+blue: rgb(85, 79, 215)
+orange: rgb(243, 108, 68);
+green : rgb(103, 193, 182);
+pink: rgb(249, 179, 166);
+white: rgb(255, 255, 255);
+light-gray: rgb(185, 185, 185);
+
+
+main-text: rgb(99, 97, 123);
+ */

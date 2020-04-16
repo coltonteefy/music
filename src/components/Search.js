@@ -1,23 +1,23 @@
 import React, {useState} from 'react';
 import '../styles/Search.css';
 
-let Search = (props) => {
+const Search = (props) => {
     const [isOpened, toggleOpen] = useState(true);
     const [searchInput, updateSearchInput] = useState("");
     const [searched, changeSearched] = useState([]);
 
-    let searchTrack = () => {
-        changeSearched([]);
-        updateSearchInput("");
-        props.spotifyWebApi.searchTracks(`artist: ${searchInput}`,{limit:50})
-            .then(data => {
-                console.log('SEARCHED TRACKS ', data.tracks.items);
-
-                changeSearched(data.tracks.items)
-            }, err => {
-                console.error(err);
-            });
-    };
+    // let searchTrack = () => {
+    //     changeSearched([]);
+    //     updateSearchInput("");
+    //     props.spotifyWebApi.searchTracks(`artist: ${searchInput}`,{limit:50})
+    //         .then(data => {
+    //             console.log('SEARCHED TRACKS ', data.tracks.items);
+    //
+    //             changeSearched(data.tracks.items)
+    //         }, err => {
+    //             console.error(err);
+    //         });
+    // };
 
     let search = () => {
         props.spotifyWebApi.search(`artist: ${searchInput}`, ["album", "artist", "playlist", "track"],{limit:50})
@@ -48,7 +48,19 @@ let Search = (props) => {
 
     let updateSearch = (e) => {
         updateSearchInput(e.target.value);
-        search();
+
+        if(e.target.value === "") {
+            console.log("EMPTY")
+            changeSearched([]);
+        } else {
+            search();
+        }
+
+    };
+
+    let clearText = () => {
+        updateSearchInput("");
+        changeSearched([]);
     };
 
     return (
@@ -61,16 +73,20 @@ let Search = (props) => {
 
             <section className="icon" id="icon">
                 <div className="top">
-                    <i className="fas fa-times close-icon"
+                    <i className="fas fa-arrow-left back-arrow-icon"
                        id="close-icon"
                        onClick={openSearch}>
                     </i>
 
                     <div id="search-bar">
                         <input type="text" onChange={updateSearch} value={searchInput} placeholder="Search"/>
-                        {/*<i className="fas fa-search search-btn"*/}
-                        {/*   onClick={search}>*/}
-                        {/*</i>*/}
+                        {
+                            searchInput !== "" &&
+                            <i className="fas fa-times clear-btn"
+                               onClick={clearText}>
+
+                            </i>
+                        }
                     </div>
                 </div>
 
